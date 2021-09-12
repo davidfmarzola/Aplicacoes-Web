@@ -1,2 +1,2 @@
 # ti2cc
-Integração da IDE Eclipse com o GitHub
+Arquivos da disciplina, cujo objetivo é desenvolver projetos com a articulação de banco de dados, algoritmos e sistemas inteligentes.
