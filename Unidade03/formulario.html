@@ -1,0 +1,180 @@
+<html>
+
+<head>
+    <meta content="text/html; charset = UTF-8" http-equiv="content-type">
+
+    <title>Controle de Estoque</title>
+</head>
+
+<script type="text/javascript">
+
+    function addIdToPath(form_name, base_url) {
+        var your_form = document.getElementById(form_name);
+        var id = your_form.elements.namedItem("id").value;
+        action_src = base_url + id;
+        your_form.action = action_src;
+    }
+
+</script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url("imagem/img_1.jpg");
+        background-color: rgb(118, 121, 122);
+        background-repeat: no-repeat background-attachment: fixed;
+        background-size: 100% 100%;
+        background: #d3dede;
+        width: 50%;
+        height: 70%;
+        margin: 0 auto;
+        border: 2px solid #069;
+        border-radius: 10px;
+        margin-top: 50px;
+
+    }
+
+    h1 {
+        background: #069;
+        text-align: center;
+    }
+
+    .generaltext,
+    p {
+        font-family: Arial;
+        text-align: center;
+    }
+
+    .section--container__responsive {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-bottom: dashed;
+        border-color: gray;
+    }
+
+    .input--down {
+        display: block;
+        margin: 0px auto;
+        margin-bottom: 10px;
+    }
+
+    .input--main__style {
+        background-color: 069;
+    }
+
+    .input--remove__style {
+        background-color: 069;
+    }
+
+    .input--consult__style {
+        background-color: 069;
+    }
+
+    .input--button {
+        font-weight: bold;
+        font-family: Arial;
+        font-size: medium;
+        border-color: transparent;
+        display: block;
+        margin: 0px auto;
+        margin-bottom: 10px;
+        color: white;
+    }
+
+    .input--register {
+        display: inline;
+    }
+
+    .input--radio {
+        display: inline;
+    }
+
+    input {
+        display: block;
+        border-radius: 7px;
+        padding: 10px;
+        border-style: solid;
+        border-color: lightgray;
+        color: black;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .p--radio__display {
+        display: block;
+    }
+
+    form p {
+        text-align: initial;
+        display: inline;
+        margin-left: 15px;
+    }
+
+    .p--nomargin {
+        margin-left: 0px;
+        margin-right: 10px;
+    }
+</style>
+
+
+<body>
+    <p>
+    <h1>Cadastro de Alunos</h1>
+    </p>
+    <section class="section--container__responsive">
+        <section class="section--mainrow__responsive first--section">
+            <h1 class="generaltext">Inserir alunos</h1>
+            <form class="form--register" action="http://localhost:6789/produto" method="post" id="form-add">
+                <label for="nome">Matrícula:</label>
+                <input type="text" size="40" placeholder=" 725436"><br><br>
+                <label for="cpf">Nome:</label>
+                <input type="text" size="40" placeholder=" Max do Val Machado"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" size="40" placeholder=" Max@sga.pucminas.br"><br><br>
+                <label for="rg">Curso:</label>
+                <input type="text" placeholder=" Enfermagem"><br><br>
+                <label for="cep">Telefone:</label>
+                <input type="text" placeholder=" (31) 8365-0100"><br><br> <input type="submit" value="Matricular"
+                    class="input--main__style input--button">
+            </form>
+        </section>
+    </section>
+    <section class="section--container__responsive">
+        <section class="section--row__responsive">
+            <h1 class="generaltext">Atualizar aluno</h1>
+            <form onsubmit="addIdToPath('form-get', 'http://localhost:6789/produto/')" method="get" id="form-get">
+                <input class="input--down" type="text" id="id" value="" placeholder="Matrícula do aluno...">
+                <input type="submit" value="atualizar" class="input--button input--consult__style">
+            </form>
+        </section>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <section class="section--row__responsive">
+            <h1 class="generaltext">Excluir aluno</h1>
+            <form onsubmit="addIdToPath('form-delete', 'http://localhost:6789/produto/delete/')" method="get"
+                id="form-delete">
+                <input class="input--down" type="text" id="id" value="" placeholder="Matrícula do aluno...">
+                <input type="submit" value="remover" class="input--remove__style input--button">
+            </form>
+        </section>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <section class="section--row__responsive">
+            <h1 class="generaltext">Listar alunos</h1>
+            <form action="http://localhost:6789/produto" method="get" id="form-all">
+                <br><br><br>
+                <input type="submit" value="todos" class="input--consult__style input--button">
+            </form>
+        </section>
+    </section>
+
+</body>
+
+</html>
