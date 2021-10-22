@@ -11,7 +11,7 @@ public class Principal {
 		sc.nextLine();
 		System.out.println("Telefone do aluno: ");
 		String telefone = sc.nextLine();
-		System.out.println("Matrícula: ");
+		System.out.println("MatrÃ­cula: ");
 		String matricula = sc.nextLine();
 		System.out.println("Nome: ");
 		String nome = sc.nextLine();
@@ -38,7 +38,7 @@ public class Principal {
 		return aluno;
 	}
 	
-	// Mostrar usuários
+	// Mostrar usuÃ¡rios
 	public static void listar(DAO dao) {
 		System.out.println("==== Mostrar alunos === ");
 		Aluno[] alunos = dao.getAlunos();
@@ -57,18 +57,18 @@ public class Principal {
 	}
 
 	public static void excluir(DAO dao) {
-		// Excluir usuï¿½rio
+		// Excluir usuÃ¯Â¿Â½rio
 		Aluno aluno = new Aluno();
-		System.out.println("Matrícula a ser excluída: ");
+		System.out.println("MatrÃ­cula a ser excluÃ­da: ");
 		int matricula = sc.nextInt();
 		aluno.setMatricula(matricula);
 		dao.excluirAluno(aluno.getMatricula());
 	}	
 	
-	// Atualizar usuário
+	// Atualizar usuÃ¡rio
 	public static void atualizar(DAO dao) {
 		
-		//valores setados como parâmetro
+		//valores setados como parÃ¢metro
 		dao.atualizarAluno(sets(leitura()));
 
 	}
@@ -84,7 +84,7 @@ public class Principal {
 
 		dao.conectar();
 		
-		//Menu para acessar os metódos da DAO
+		//Menu para acessar os metÃ³dos da DAO
 		int opcao = 0;
 		while (opcao != 5) {
 			System.out.println("(1) Listar\n(2) Inserir\n(3) Excluir\n(4) Atualizar\n(5) Sair\n");
@@ -106,7 +106,7 @@ public class Principal {
 					sair();
 					break;
 				default:
-					System.out.println("Valor inválido\nPor favor, entre com um número válido");
+					System.out.println("Valor invÃ¡lido\nPor favor, entre com um nÃºmero vÃ¡lido");
 					break;
 			}
 
