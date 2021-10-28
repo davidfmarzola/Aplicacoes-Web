@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Integracao_Spark"/>
+	<classpathentry kind="src" path="Unidade01/src"/>
+	<classpathentry kind="output" path="Unidade01/bin"/>
+</classpath>
