@@ -1,4 +1,6 @@
 package service;
+//acessando metódos de acesso ao banco de dados
+import com.ti2cc.*;
 
 import java.io.IOException;
 
@@ -9,11 +11,14 @@ import spark.Response;
 public class AlunoService {
 
 	private AlunoDAO AlunoDAO;
-
+	// Objeto principal inserido
+	private Principal principal;
+	
 	public AlunoService() {
 		//acesso fake ao banco de dados
 		try {
 			AlunoDAO = new AlunoDAO("aluno.dat");
+			principal = new Principal();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
             e.printStackTrace();
@@ -32,6 +37,8 @@ public class AlunoService {
 			Aluno aluno = new Aluno(id, matricula, nome, email, curso, telefone);
 
 			AlunoDAO.add(aluno);
+			//inserindo aluno no banco de dados
+			principal.chamadas(aluno, 2);
 
 			response.status(201); // 201 Created
 			return id;
@@ -41,8 +48,10 @@ public class AlunoService {
 		int id = Integer.parseInt(request.params(":id"));
 		
 		Aluno aluno = (Aluno) AlunoDAO.get(id);
+		principal.chamadas(aluno, 5);
 		
 		if (aluno != null) {
+			
     	    response.header("Content-Type", "application/xml");
     	    response.header("Content-Encoding", "UTF-8");
 
@@ -54,9 +63,11 @@ public class AlunoService {
             		"\t<curso>" + aluno.getCurso() + "</curso>\n" +
             		"\t<telefone>" + aluno.getTelefone() + "</telefone>\n" +
             		"</aluno>\n";
+            
+            
         } else {
             response.status(404); // 404 Not found
-            return "Aluno " + id + " não encontrado.";
+            return "Aluno " + id + " nÃ£o encontrado.";
         }
 
 	}
@@ -65,7 +76,7 @@ public class AlunoService {
 		int id = Integer.parseInt(request.params(":id"));
         
 		Aluno aluno = (Aluno) AlunoDAO.get(id);
-
+		
         if (aluno != null) {
         	aluno.setMatricula(Integer.parseInt(request.queryParams("matricula")));
         	aluno.setNome(request.queryParams("nome"));
@@ -74,11 +85,13 @@ public class AlunoService {
         	aluno.setTelefone(Integer.parseInt(request.queryParams("telefone")));
 
         	AlunoDAO.update(aluno);
+        	//atualiza no banco de dados
+        	principal.chamadas(aluno, 4);
         	
             return id;
         } else {
             response.status(404); // 404 Not found
-            return "Aluno não encontrado.";
+            return "Aluno nÃ£o encontrado.";
         }
 
 	}
@@ -89,18 +102,25 @@ public class AlunoService {
         Aluno aluno = (Aluno) AlunoDAO.get(id);
 
         if (aluno != null) {
-
+        	
             AlunoDAO.remove(aluno);
+            
+            // removendo aluno do banco de dados 
+            principal.chamadas(aluno, 3);
 
             response.status(200); // success
         	return id;
         } else {
             response.status(404); // 404 Not found
-            return "Aluno não encontrado.";
+            return "Aluno nÃ£o encontrado.";
         }
 	}
 
 	public Object getAll(Request request, Response response) {
+		// listando todos os alunos do banco de dados
+		Aluno _aluno = new Aluno();
+		principal.chamadas(_aluno, 1);
+		
 		StringBuffer returnValue = new StringBuffer("<alunos type=\"array\">");
 		for (Aluno aluno : AlunoDAO.getAll()) {
 			returnValue.append("\n<aluno>\n" + 
@@ -116,5 +136,7 @@ public class AlunoService {
 	    response.header("Content-Type", "application/xml");
 	    response.header("Content-Encoding", "UTF-8");
 		return returnValue.toString();
+		
 	}
+	
 }
