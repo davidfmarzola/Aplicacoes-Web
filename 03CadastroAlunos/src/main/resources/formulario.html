@@ -1,0 +1,131 @@
+<html>
+
+<head>
+    <meta content="text/html; charset = UTF-8" http-equiv="content-type">
+
+    <title>Cadastro de Alunos</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+
+    function addIdToPath(form_name, base_url) {
+        var your_form = document.getElementById(form_name);
+        var id = your_form.elements.namedItem("id").value;
+        action_src = base_url + id;
+        your_form.action = action_src;
+    }
+
+</script>
+
+<body>
+    <p>
+    <h1>Cadastro de Alunos</h1>
+    </p>
+    <section class="section--container__responsive">
+        <section class="section--mainrow__responsive first--section">
+            <h1 class="generaltext">Inserir aluno</h1>
+            <!-- requisiÁ„o -->
+            <form class="form--register" action="http://localhost:6789/aluno" method="post" id="form-add"> 
+                <label for="matricula">Matr√≠cula:</label>
+                <input name="matricula" type="text" size="40" placeholder=" 725436"><br><br>
+                <label for="nome">Nome:</label>
+                <input name="nome" type="text" size="40" placeholder=" Max do Val Machado"><br><br>
+                <label for="email">Email:</label>
+                <input name="email" type="email" size="40" placeholder=" Max@sga.pucminas.br"><br><br>
+                <label for="curso">Curso:</label>
+                <input name="curso" type="text" placeholder=" Enfermagem"><br><br>
+                <label for="telefone">Telefone:</label>
+                <input name="telefone" type="text" placeholder=" 8365-0100">
+                <br><br>
+                <input type="submit" value="Matricular" class="input--main__style input--button">
+            </form>
+        </section>
+    </section>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <section class="section--container__responsive">
+        <section class="section--mainrow__responsive first--section">
+            <h1 class="generaltext">Atualizar aluno</h1>
+            <form onsubmit="addIdToPath('form-update', 'http://localhost:6789/aluno/update/')" method="get"
+                id="form-update">                
+                <label for="id">Id:</label>
+                <input name="id" type="text" size="40" placeholder=" id do aluno..."><br><br>
+                <label for="email">Email:</label>
+                <input name="email" type="email" size="40" placeholder=" Max@sga.pucminas.br"><br><br>
+                <label for="curso">Curso:</label>
+                <input name="curso" type="text" placeholder=" Enfermagem"><br><br>
+                <label for="telefone">Telefone:</label>
+                <input name="telefone" type="text" placeholder=" 8365-0100">
+                <br><br>
+                <input type="submit" value="Atualizar" class="input--main__style input--button">
+            </form>
+        </section>
+    </section>
+
+    <section class="section--container__responsive">
+        <section class="section--row__responsive">
+            <h1 class="generaltext">Consultar aluno</h1>
+            <form onsubmit="addIdToPath('form-get', 'http://localhost:6789/aluno/')" method="get" id="form-get">
+                <input class="input--down" type="text" id="id" value="" placeholder="id do aluno...">
+                <input type="submit" value="consultar" class="input--button input--consult__style">
+            </form>
+        </section>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <section class="section--row__responsive">
+            <h1 class="generaltext">Excluir aluno</h1>
+            <form onsubmit="addIdToPath('form-delete', 'http://localhost:6789/aluno/delete/')" method="get"
+                id="form-delete">
+                <input class="input--down" type="text" id="id" value="" placeholder="id do aluno...">
+                <input type="submit" value="remover" class="input--remove__style input--button">
+            </form>
+        </section>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <section class="section--row__responsive">
+            <h1 class="generaltext">Listar alunos</h1>
+            <form action="http://localhost:6789/aluno" method="get" id="form-all">
+                <br><br><br>
+                <input type="submit" value="todos" class="input--consult__style input--button">
+            </form>
+        </section>
+
+    </section>
+
+    <section class="section--container__responsive" style="visibility: hidden" id="aluno-result">
+
+        <table border="1">
+            <tr>
+                <td>Aluno id:</td>
+                <td><span id="id">Sem Resultado</span></td>
+            </tr>
+            <tr>
+                <td>Matricula:</td>
+                <td><span id="matricula">Sem Resultado</span></td>
+            </tr>
+            <tr>
+                <td>Nome:</td>
+                <td><span id="nome">Sem Resultado</span></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><span id="email">Sem Resultado</span></td>
+            </tr>
+            <tr>
+                <td>Curso:</td>
+                <td><span id="curso">Sem Resultado</span></td>
+            </tr>
+            <tr>
+                <td>Telefone:</td>
+                <td><span id="telefone">Sem Resultado</span></td>
+            </tr>
+        </table>
+
+    </section>
+
+</body>
+
+</html>

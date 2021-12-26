@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: rgb(118, 121, 122); */
+    background-image: url("imagemDeFundo.jpg");
+    /* background-repeat: no-repeat background-attachment: fixed; */
+    background-repeat: no-repeat;
+    background-size: 100% 160%;
+    background-position: center center;
+    /* background: #d3dede; */
+    width: 50%;
+    height: 128%;
+    margin: 0 auto;
+    border: 2px solid #069;
+    border-radius: 10px;
+    margin-top: 50px;
+
+}
+
+h1 {
+    background: #069;
+    text-align: center;
+}
+
+.generaltext,
+p {
+    font-family: Arial;
+    text-align: center;
+}
+
+.section--container__responsive {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: dashed;
+    border-color: #d3dede;
+}
+
+
+.input--down {
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 10px;
+}
+label {
+    background-color: #d3dede;
+}
+.input--main__style {
+    background-color: 069;
+}
+
+.input--remove__style {
+    background-color: 069;
+}
+
+.input--consult__style {
+    background-color: 069;
+}
+
+.input--button {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: medium;
+    border-color: transparent;
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.input--register {
+    display: inline;
+}
+
+.input--radio {
+    display: inline;
+}
+
+input {
+    display: block;
+    border-radius: 7px;
+    padding: 10px;
+    border-style: solid;
+    border-color: lightgray;
+    color: black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.p--radio__display {
+    display: block;
+}
+
+form p {
+    text-align: initial;
+    display: inline;
+    margin-left: 15px;
+}
+
+.p--nomargin {
+    margin-left: 0px;
+    margin-right: 10px;
+}
