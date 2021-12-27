@@ -1,2 +1,18 @@
-# ti2cc
-Arquivos da disciplina, cujo objetivo é desenvolver projetos com a articulação de banco de dados, algoritmos e sistemas inteligentes.
+<h1 align="center">Cadastro de Alunos</h1>
+
+## :camera: Demonstração
+![gif](Cadastro.gif)
+
+## :rocket: Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+✔️HTML
+
+✔️CSS
+
+✔️Java
+
+✔️PostgreSQL
+
+✔️Framework Spark
