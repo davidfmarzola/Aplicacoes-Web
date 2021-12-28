@@ -16,3 +16,5 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ✔️PostgreSQL
 
 ✔️Framework Spark
+
+✔️Maven
