@@ -18,3 +18,5 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ✔️Framework Spark
 
 ✔️Maven
+
+✔️Eclipse IDE
